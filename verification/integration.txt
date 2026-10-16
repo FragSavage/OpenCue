@@ -1,0 +1,36 @@
+OpenCue integration verification: 33 passed, 0 failed. 2026-10-16T11:43:46.3516186+00:00
+PASS Endpoint GUID scope never depends on a friendly-name substring
+PASS Compile uses ten filters, front stereo scope and independent peak protection
+PASS Dynamics parameter units match native plugin ABI
+PASS Every fine control maps to its native parameter
+PASS 7.1 front-transient processing precedes measured rendering and tone
+PASS All-output mode targets only explicit render GUIDs, never Device all
+PASS Decimal serialization independent of Windows culture
+PASS Bypass compiles to comments only, without a device requirement
+PASS Unknown devices and unsafe numeric inputs rejected
+PASS Headroom check blocks unsafe boosts
+PASS Apply/bypass/restore byte preservation utf-8, BOM 0, ending 0
+PASS Apply/bypass/restore byte preservation utf-8, BOM 0, ending 1
+PASS Apply/bypass/restore byte preservation utf-8, BOM 0, ending 2
+PASS Apply/bypass/restore byte preservation utf-8, BOM 3, ending 0
+PASS Apply/bypass/restore byte preservation utf-8, BOM 3, ending 1
+PASS Apply/bypass/restore byte preservation utf-8, BOM 3, ending 2
+PASS UTF-16 input is rejected without a misleading applied state
+PASS External edits survive surgical integration removal
+PASS Damaged markers leave root bytes untouched
+PASS Edited managed content is preserved and refused
+PASS Canonical nested duplicate Include is rejected before mutation
+PASS Later external effects are not silently placed after limiter
+PASS Unknown active filename is not overwritten
+PASS Conditional root requires manual review without mutation
+PASS Original dynamics resource can be applied in a scratch engine
+PASS Wrong dynamics architecture and stage roots are rejected
+INFO Active render endpoints: 4
+PASS Windows endpoint enumeration reads active playback outputs
+PASS Virtual relay preserves the rendered L/R pair and applies actual volume
+PASS Relay rejects physical capture and virtual feedback before device activation
+PASS Native seven-channel-mask structure is read at the Windows ABI offset
+PASS Official 16ch local profile remains opaque and exact
+PASS Imported correction is real numeric EQ before tone and dynamics
+PASS Explicit controller takeover preserves and recovers prior routing
+Only scratch files and read-only endpoint enumeration were used. No live audio configuration was modified.

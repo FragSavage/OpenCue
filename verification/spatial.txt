@@ -1,0 +1,7 @@
+PASS: continuity, in-place, reset, finite limits at 32000 Hz.
+PASS: continuity, in-place, reset, finite limits at 44100 Hz.
+PASS: continuity, in-place, reset, finite limits at 48000 Hz.
+PASS: continuity, in-place, reset, finite limits at 88200 Hz.
+PASS: continuity, in-place, reset, finite limits at 96000 Hz.
+PERF: 0.081 s compute for 5.333 s of 8-channel 48-kHz audio (1.5% of one core, this host).
+PASS: 64463 assertions. No audio device opened.

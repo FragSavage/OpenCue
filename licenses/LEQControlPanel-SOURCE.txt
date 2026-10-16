@@ -1,0 +1,24 @@
+ArtIsWar LEQ Control Panel v1.0.0
+Copyright (C) 2025-2026 ArtIsWar LLC
+Based on enable-loudness-equalisation by Falcosc.
+
+This is an independently identified, unmodified third-party utility.
+License: GNU General Public License version 3.0.
+See LEQControlPanel-GPL-3.0.txt and LEQControlPanel-NOTICE.txt.
+
+Corresponding official v1.0.0 project source and build instructions are supplied
+alongside the executable in LEQControlPanel-v1.0.0-source.zip.
+The source archive is from the official v1.0.0 tag:
+https://github.com/ArtIsWar/LEQControlPanel/tree/v1.0.0
+Official source archive:
+https://github.com/ArtIsWar/LEQControlPanel/archive/refs/tags/v1.0.0.zip
+Official release:
+https://github.com/ArtIsWar/LEQControlPanel/releases/tag/v1.0.0
+
+Unmodified executable SHA-256:
+4f70fd62283ba1451e9c609835f36bf9ed80f8aac9d6a082a59bd757e642a9a9
+Length: 210293952 bytes
+
+No separate .NET runtime or application installer is required. Opening the GUI
+requests administrator access through Windows. Its internal Install LEQ feature
+is a separate operation that changes audio enhancements on the chosen device.

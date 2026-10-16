@@ -1,0 +1,49 @@
+OpenCue 0.2.0 release verification
+16 October 2026 | Windows x64
+
+Release
+Self-contained .NET 8 Windows executable published successfully. It does not
+require a separate .NET installation. Original DSP resources are embedded.
+NAudio 2.2.1 supplies WASAPI playback, buffering and nominal rate conversion.
+
+Passed checks
+- Packaged EXE: 33 integration checks, 0 failed. This ran from the actual
+  single-file release with --self-test, using scratch configurations only.
+- Original dynamics DLL: 227 numerical/ABI checks, 0 failed, at 44.1, 48 and
+  96 kHz. All 14 parameter mappings and observable effect behavior checked.
+- Original measured 7.1 renderer: 64,463 assertions passed at 32, 44.1, 48,
+  88.2 and 96 kHz. Impulses, channel directions, continuity, reset, finite
+  limits and in-place processing checked without opening an audio device.
+- Numeric headphone EQ importer: 49 smoke checks passed, including real
+  AutoEq text formats, numeric limits, culture and rejected APO commands.
+- Official Equalizer APO and VB-CABLE downloads completed and matched the
+  pinned SHA-256 values. No installer was executed by these checks.
+- Windows UI inspected: Setup, Sound and Spatial & routing; accessible
+  controls, scrolling, actual Boost values, Custom state and Neutral reset.
+- Active Windows playback enumeration read four endpoints. Device scope,
+  configuration backup/recovery, imported official profile preservation,
+  relay channel selection and feedback rejection checked in isolation.
+
+Details
+verification/integration.txt
+verification/dynamics.txt
+verification/spatial.txt
+verification/setup-downloads.txt
+Source/Dynamics and source/Spatial contain the native test harnesses.
+The app's --self-test <report-path> runs the integration suite. It creates
+scratch configurations beside the requested report and reads playback device
+information. It does not change the installed Equalizer APO configuration.
+
+Verification limits
+Equalizer APO and the required virtual devices were not installed during
+development. No live game audio, end-to-end latency, device compatibility,
+perceptual improvement or completed first-time driver installation was
+verified on this PC. Follow START-HERE and Device Selector's own attachment
+test before relying on processing. Pair virtual playback/capture devices
+and inspect the relay meter during a real listening test.
+
+Transient and ambience reduction are original general-purpose processing;
+they do not identify game-specific sources. The limiter is sample-based.
+Official 16-channel ArtTune processing needs its separately installed matching
+components and an unmodified local profile. Exact paid Rara/ArtTuneKit feature
+or sound parity is not claimed. No premium licence unlocking is included.

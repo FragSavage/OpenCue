@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>OpenCue</AssemblyName>
+    <Version>0.2.0</Version>
+    <Description>Free, open source Windows audio controls with original EQ and dynamics.</Description>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup><Compile Remove="Dynamics\**" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="..\engine\OpenCueDynamics.dll" LogicalName="OpenCue.Dynamics.dll" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="..\engine\OpenCueSpatial.dll" LogicalName="OpenCue.Spatial.dll" /></ItemGroup>
+  <ItemGroup><PackageReference Include="NAudio" Version="2.2.1" /></ItemGroup>
+</Project>

@@ -1,0 +1,47 @@
+OpenCue Dynamics version 2 native DLL verification
+Run: 16 October 2026, Windows x64
+Compiler: Zig 0.17.0, zig cc, C11, -O2 -fno-fast-math
+Warnings: -Wall -Wextra -Werror; compilation completed successfully.
+
+Actual test command from workspace root:
+work\dynamics-build\OpenCueDynamicsTests.exe <absolute path to outputs\OpenCue\engine\OpenCueDynamics.dll> <absolute path to saved original v1 DLL>
+
+Verified 44100 Hz
+Verified 48000 Hz
+Verified 96000 Hz
+Verified expanded controls at 44100 Hz
+Verified expanded controls at 48000 Hz
+Verified expanded controls at 96000 Hz
+227 checks, 0 failures
+
+The harness dynamically loaded the deliverable DLL and exercised its public
+entry point, dispatcher, parameter functions and replacing process callback.
+It checked stereo ABI and exact parameter keys; normalized parameter clamps;
+invalid parameter/sample-rate handling; silence; observable compression;
+threshold and live ratio changes; stereo amplitude ratio preservation; the
+first-sample limiter; NaN, Inf and maximum-float input safety; sample ceiling;
+in-place buffers; continuity across block sizes; and host ownership of user.
+The original 76-check suite remains, with its parameter-count expectation
+updated for the expanded 14-control contract. Further checks demonstrate:
+
+- Attack endpoints of 1/50 ms and release endpoints of 20/500 ms, including
+  different measured onset and recovery behavior, not just display values.
+- Actual 6 dB manual makeup gain and linked stereo behavior.
+- Reduced short onset energy with recovery on a sustained background.
+- Low-level attenuation without hard muting; loud material above Floor kept.
+- Quiet sustained signal lifted by the RMS leveler within a 12 dB bound.
+- Below-gate noise unamplified even after active boost; silence remains finite.
+- Width changing side content while preserving center; left/right balance.
+- A final sample ceiling after all enabled effects and boosts.
+- Exact finite identity when the two main stages are off and controls neutral.
+- New neutral defaults compared directly against the saved original v1 DLL
+  at all three rates, with maximum output difference below 1e-6.
+
+DLL version: 2000
+DLL size: 229888 bytes
+DLL SHA256: 99DB5DBD4178740CCB32F8D0AFB310F627D6BA33DE06EF87630DC30086F71323
+The generic OpenCueDynamics.dll and versioned OpenCueDynamics-v2.dll are identical.
+
+These are numerical signal/ABI tests. They do not establish measured Windows
+end-to-end latency, in-game benefit, spatial accuracy or an actual Equalizer
+APO installation. No selective gunshot recognition or true-peak claim is made.

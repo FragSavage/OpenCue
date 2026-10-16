@@ -1,0 +1,12 @@
+**/bin/
+**/obj/
+**/.vs/
+build/
+dist/
+OpenCue.exe
+tools/*.exe
+*.user
+*.suo
+*.pdb
+*.lib
+*.log

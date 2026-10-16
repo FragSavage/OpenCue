@@ -1,0 +1,31 @@
+MIT KEMAR measured head-related impulse response data
+Copyright 1994 MIT Media Laboratory.
+Authors: Bill Gardner and Keith Martin.
+
+Citation:
+Bill Gardner and Keith Martin, "HRTF Measurements of a KEMAR Dummy-Head
+Microphone," MIT Media Lab Perceptual Computing Technical Report #280, May 1994.
+
+Official data and usage terms:
+https://sound.media.mit.edu/resources/KEMAR.html
+https://sound.media.mit.edu/resources/KEMAR/README
+https://sound.media.mit.edu/resources/KEMAR/hrtfdoc.txt
+
+The authors provide these measurements free for unrestricted use, with citation
+of the authors required when used for research or commercial applications.
+The institution's name does not mean these data use the MIT software license.
+The data remain separately attributed from OpenCue's GPL source code.
+
+Source archive used:
+https://sound.media.mit.edu/resources/KEMAR/compact.zip
+Archive SHA-256:
+0bcd69f8e8760cf8eacff4a89594ceca7d44fb94f28ecf0bf19970003bbfb3e0
+
+The four files under data/ are unmodified 44.1-kHz stereo PCM16 WAVs from the
+official compact archive, elevation 0 degrees and azimuths 0, 30, 90, 150 degrees.
+kemar_hrir.h contains the same signed sample values, generated losslessly by
+generate_hrir.ps1. Negative source azimuths swap the measured left/right ears.
+OpenCue's original renderer resamples these coefficients to the endpoint rate.
+
+Only the measurement data are used. No MIT demonstration spatializer code,
+proprietary Rara DSP, ArtTune DSP, or paid preset is included in OpenCue Spatial.

@@ -1,0 +1,124 @@
+OpenCue 0.2 for Windows x64
+
+OpenCue is a free audio app with original EQ, dynamics, measured 7.1 headphone
+rendering and virtual-cable playback. There is no account or subscription.
+
+First use for normal stereo headphones or IEMs
+
+1. Extract the whole ZIP into a folder. Open OpenCue.exe. No .NET installation
+   is needed for the supplied app.
+2. Open Setup and click Start setup. This downloads the verified free
+   Equalizer APO installer. Approve Windows, keep its default folder, and
+   select your PLAYBACK output when Device Selector opens. Select no microphone.
+3. Follow its restart prompt if shown. In Device Selector, run its installation
+   test on that output. Keep Windows audio enhancements enabled for it.
+4. Open Sound. Select the same output, choose Neutral, and click Apply sound.
+   Start quietly. The sliders are saved when applied; Apply changes live is
+   optional. Natural, Compressed and Boost set real processing values.
+5. Compare with Bypass. Remove tuning removes OpenCue's configuration. If you
+   explicitly replaced another controller, it can restore the exact backup
+   while there are no newer external root edits.
+
+What the sound controls do
+
+EQ changes frequency balance. Import headphone EQ accepts numeric parametric
+or GraphicEQ text from a compatible correction. It does not download a library.
+Compression controls loudness differences. Attack and release set its timing.
+Makeup and auto leveling can raise quiet material. Peak protection is a final
+sample limiter; it is not a true-peak limiter.
+
+Transient reduction reduces sharp onsets, including gunfire and other sharp
+sounds. Ambience reduction attenuates low-level material below its threshold;
+it can also reduce quiet cues. These are original general processors, not a
+trained source classifier. In OpenCue 7.1 mode, transient reduction runs on
+front L/R before headphone rendering; other channels retain their transients.
+
+Stereo width and balance change the two-channel image. They do not create
+surround channels. Your game must supply those channels for real 7.1 input.
+
+Real 7.1 game audio
+
+1. Open Spatial & routing and click Set up virtual cable. OpenCue downloads
+   the verified base VB-CABLE package from VB-Audio. Approve its installer,
+   click Install Driver, and restart as requested. No extra paid cables are
+   required for this route.
+2. Open Windows sound settings. In the playback list, configure CABLE Input
+   as standard 7.1 with 48 kHz format. Attach Equalizer APO to that virtual
+   playback output and pass Device Selector's installation test.
+3. Refresh devices in OpenCue. Select that virtual processing output and
+   click Apply 7.1 rendering. This uses an original renderer with measured
+   MIT KEMAR responses, followed by your tone and dynamics controls.
+4. Set the GAME output to CABLE Input. Keep chat on your normal headphones.
+5. In OpenCue select OpenCue 7.1, the matching CABLE Output capture input,
+   and your physical headphones as the final output. Click Start game audio.
+   Keep OpenCue open. If playback crackles, stop it, increase the buffer,
+   and start again. The meter shows actual outgoing audio.
+6. Use Bypass tone to compare EQ/dynamics while preserving the spatial route.
+   Return to stereo stops the relay and targets your physical output. Select
+   that physical output in the game as well.
+
+The virtual capture endpoint can expose a different shared channel count from
+the playback endpoint. It must carry that same cable's processed front L/R.
+Choose matching playback/capture devices; file checks alone cannot prove the
+live Windows route. Another relay or Windows Listen can produce duplicates.
+
+Official ArtTune 16-channel processing
+
+The official ArtTuneDB provides a free setup and profiles:
+https://github.com/ArtIsWar/ArtTuneDB
+
+Install the matching official components and configure the 16-channel Art Tune +
+virtual output using its current guide. OpenCue does not bundle its restricted
+Bravo engine. In Spatial & routing, Load installed 16ch preset selects an
+unmodified BO7 V5 profile and requires its matching local x64 engine. Select
+the matching 16-channel virtual playback output, Apply 16ch profile, select
+Official ArtTune 16ch relay mode, and choose that cable's capture and your
+physical headphones. Leave Windows LEQ off for this official V5 path.
+
+If another APO controller uses complex routing, OpenCue asks before replacing
+the main configuration. That change affects all devices handled by that file.
+It retains byte-exact recovery copies under EqualizerAPO/config/OpenCue/recovery.
+Declining leaves the old controller in place. Do not run competing controllers
+against the same configuration at once.
+
+Optional Windows loudness equalization
+
+The included tools/LEQControlPanel.exe is ArtIsWar's official signed portable
+v1.0.0. It needs no installation. Use Open LEQ Control Panel in Setup; Windows
+asks for administrator access. Choose your output in that utility. OpenCue
+opens its GUI and never passes automatic toggle flags. Compare LEQ and
+OpenCue compression separately before combining them.
+
+Troubleshooting
+
+- No change in sound: confirm the exact output in Device Selector and run
+  its installation test. Exclusive/ASIO paths can bypass Equalizer APO.
+- No game sound after routing: match the game's virtual playback output,
+  capture input and physical headphones; start the relay and inspect its meter.
+- Preset too quiet: leave Peak protection on, then adjust makeup/leveling
+  gradually. Headroom is deliberately conservative.
+- A device disappears: reconnect it and Refresh. OpenCue does not silently
+  replace an explicitly selected disconnected output with another device.
+- A download fails: use the official page offered by the app. Mismatched
+  installer hashes are never executed.
+
+Build and scope
+
+The supplied app needs no .NET installation. Rebuilding requires Windows and
+the .NET 8 SDK (or a compatible newer SDK), plus internet access to restore
+NAudio and the publish runtime. Run .\build.ps1 in PowerShell. By default it
+embeds the included x64 native DLLs. To rebuild those DLLs too, use
+.\build.ps1 -ZigPath 'C:\path\to\zig.exe'. The output is build\OpenCue.exe;
+copy it beside this package's tools and licenses folders so the optional LEQ
+launcher can find its supplied tool. No installers run during this build.
+
+Original OpenCue code and DSP are GPL-3.0-or-later. Source, build script and
+licences are included. NAudio is MIT licensed; MIT KEMAR attribution is in
+licenses. The separately supplied LEQ tool retains its licence and matching
+source archive. No Rara premium binary, copied premium preset or licence
+unlock is included. Exact Rara/ArtTuneKit parity and game-specific gunshot
+classification are not established by these original processors.
+
+Signal/configuration and download checks are recorded in TEST-RESULTS.txt.
+Live in-game routing and listening were not verified on this PC because the
+required effect/virtual devices were not installed during development.
